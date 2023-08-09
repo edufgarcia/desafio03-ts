@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom"
 import { AppContext } from "./components/AppContext"
 import Conta from "./pages/Conta"
 import ContaInfo from "./pages/ContaInfo"
+import User from "./pages/User"
 import Home from "./pages/Home"
 
 const MainRoutes = () => {
@@ -12,7 +13,8 @@ const MainRoutes = () => {
         <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/conta/:id' element={ isLoggedIn ? <Conta /> : <Home/> } />
-            <Route path='/infoconta' element={<ContaInfo />} />
+            <Route path='/infoconta' element={ isLoggedIn ? <ContaInfo /> : <Home/>} />
+            <Route path='/user/:id' element={ isLoggedIn ? <User /> : <Home/>} />
         </Routes>
     )
 }

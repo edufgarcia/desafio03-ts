@@ -5,31 +5,31 @@ import { api } from "../api"
 import CardInfo from "../components/CardInfo"
 import { AppContext } from "../components/AppContext"
 
-interface UserData {
+export interface UserData {
     email: string
-    password: string
+    password?: string
     name: string
-    balance: number
+    balance?: number
     id: string
 }
 
 const Conta = () => {
-    const [ userData, setUserData ] = useState<null | UserData>()
+    // const [ userData, setUserData ] = useState<null | UserData>()
     const { id } = useParams()
     const navigate = useNavigate()
 
-    const { isLoggedIn } = useContext(AppContext)
+    const { isLoggedIn, userData } = useContext(AppContext)
 
     !isLoggedIn && navigate('/')
 
-    useEffect(() => {
-        const getData = async () => {
-            const data: any | UserData = await api
-            setUserData(data)
-        }
+    // useEffect(() => {
+    //     const getData = async () => {
+    //         const data: any | UserData = await api
+    //         setUserData(data)
+    //     }
 
-        getData()
-    }, [])
+    //     getData()
+    // }, [])
 
     const actualData = new Date()
 

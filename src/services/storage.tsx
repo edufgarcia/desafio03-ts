@@ -1,5 +1,9 @@
+import { UserData } from "../pages/Conta"
+
 interface IDIoBank {
-    login: boolean;
+    login: boolean,
+    userId?: number,
+    user?: UserData
 }
 
 const dioBank = {

@@ -14,6 +14,10 @@ export const Header  = () => {
     navigate('/')
   }
 
+  const userPage = () => {
+    navigate(`/user/1`)
+  }
+
   return(
     <Flex backgroundColor='orange' padding='5px'>
       <Box>
@@ -25,6 +29,17 @@ export const Header  = () => {
         isLoggedIn && (
           <>
             <Spacer />
+            <Button mx={2 }
+              onClick={() => navigate('/conta/1')}
+            >
+              Home
+            </Button>
+            <Button mx={2 }
+              onClick={() => userPage()}
+            >
+              Meus dados
+            </Button>
+           
             <Button
               onClick={() => logout()}
             >
